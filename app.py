@@ -37,7 +37,7 @@ def save_order():
 # 주문 목록보기(Read) API
 @app.route('/order', methods=['GET'])
 def view_orders():
-    orders = list(db.orders.find({}, {'_id' : false}))
+    orders = list(db.orders.find({}, {'_id' : False}))
     return jsonify({'result': 'success', 'orders': orders})
 
 

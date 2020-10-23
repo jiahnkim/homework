@@ -71,9 +71,10 @@
     </style>
 
     <script>
+        orderListing();
 
         $(document).ready(function () {
-            alert('다 로딩됐다!')
+            alert('다 로딩됐다!');
             $.ajax({
                 type: "GET",
                 url: "https://api.manana.kr/exchange/rate.json",
@@ -86,9 +87,7 @@
             })
         });
 
-        function order
-
-        .listing()
+        function orderListing()
         {
             $.ajax({
                 type: "GET",
@@ -107,7 +106,7 @@
                                            <td>${count}</td>
                                            <td>${address}</td>
                                            <td>${phone}</td>
-                                         </tr>`
+                                         </tr>`;
                         $('#order-list-box').append(temp_html)
                     }
 
@@ -121,13 +120,13 @@
             let address = $(`#order-address`).val();
             let phone = $(`#order-phone`).val();
 
-            if (name == '') {
+            if (name === '') {
                 alert('이름을 입력하세요요');
-            } else if (count == '') {
+            } else if (count === '') {
                 alert('수량을 선택하세요');
-            } else if (address == '') {
+            } else if (address === '') {
                 alert('주소를 입력하세요');
-            } else if (phone == '') {
+            } else if (phone === '') {
                 alert('전화번호를 입력하세요')
             } else {
                 $.ajax({
@@ -135,7 +134,7 @@
                     url: "/order",
                     data: {'name_give': name, 'count_give': count, 'address_give': address, 'phone_give': phone},
                     success: function (response) {
-                        if (response["result"] == "success") {
+                        if (response["result"] === "success") {
                             alert(response["msg"]);
                             window.location.reload();
                         }
@@ -203,5 +202,6 @@
         </div>
 
     </div>
+</div>
 </body>
 </html>
